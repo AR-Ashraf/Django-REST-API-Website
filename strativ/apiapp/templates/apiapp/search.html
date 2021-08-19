@@ -109,22 +109,15 @@
     }
 }
 
+
     </style>
 </head>
 <body>
 <div class="table-container">
     <h1 class="heading">STRATIV Django Assignment</h1>
-    <h3 class="sub-heading">Mohammad Ashraful Islam</h3>
-    <center>
-        <form action="{% url 'search' %}" method=POST>
-            {% csrf_token %}
-            <input type="text" name="search"/>
-            <button type="submit">Search</button>
-        </form>
-    </center>
-    <br/>
-
-    <table class="table">
+    {% if country %}
+        <h3 class="sub-heading">Search Result Found</h3>
+        <table class="table">
         <thead>
         <tr>
             <th>Name</th>
@@ -138,7 +131,7 @@
         </thead>
         <tbody>
 
-        {% for data in apiapp %}
+        {% for data in country %}
         <tr>
             <td class="name" data-label="Name">{{ data.name }}</td>
             <td data-label="Alpha2Code">{{ data.alpha2code }}</td>
@@ -151,7 +144,13 @@
         {% endfor %}
 
         </tbody>
-    </table>
+        </table>
+
+    {% else %}
+        <h3 class="sub-heading">No Search Result Found</h3>
+    {% endif %}
+    <br/>
+    <a href="{% url 'index' %}">Go Back to Home Page</a>
 </div>
 </body>
 </html>

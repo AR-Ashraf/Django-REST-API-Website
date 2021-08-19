@@ -14,6 +14,7 @@ DELETE_SUCCESS = 'deleted'
 UPDATE_SUCCESS = 'updated'
 CREATE_SUCCESS = 'created'
 
+
 # Urls:
 # 		1) List of all countries: http://127.0.0.1:8000/api/country/list
 # 		2) Detail of a specific country: http://127.0.0.1:8000/api/country/list?search=<name of country>
@@ -28,7 +29,6 @@ class ApiCountryListView(ListAPIView):
     pagination_class = PageNumberPagination
     filter_backends = (SearchFilter, OrderingFilter)
     search_fields = ('name', 'capital', 'population', 'languages', 'borders')
-
 
 
 @api_view(['PUT'])

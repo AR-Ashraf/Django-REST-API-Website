@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> strativ </title>
+    <style type="text/css">
+        *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+        body{
+        background-color: #f8f9fd;
+        font-family: sans-serif;
+        }
+        .table-container{
+        padding: 0 10%;
+        margin: 40px auto 0;
+        }
+        .heading{
+        font-size: 40px;
+        text-align: center;
+        color: #000000;
+        margin-bottom: 40px;
+        }
+        .sub-heading{
+        font-size: 30px;
+        text-align: center;
+        color: #000000;
+        margin-bottom: 40px;
+        }
+        .title{
+        font-size: 20px;
+        text-align: start;
+        color: #000000;
+        margin-bottom: 20px;
+        }
+        .description{
+        font-size: 16px;
+        text-align: start;
+        color: #696969;
+        margin-bottom: 20px;
+        }
+}
+
+
+    </style>
+</head>
+<body>
+<div class="table-container">
+    <h1 class="heading">STRATIV Django Assignment</h1>
+    <h3 class="sub-heading">{{country.name}}</h3>
+    <ul>
+        <li>
+            <h3 class="title">Alpha2Code:</h3>
+        </li>
+        <h3 class="description">{{country.alpha2code}}</h3>
+        <li>
+            <h3 class="title">Capital:</h3>
+        </li>
+        <h3 class="description">{{country.capital}}</h3>
+        <li>
+            <h3 class="title">Population:</h3>
+        </li>
+        <h3 class="description">{{country.population}}</h3>
+        <li>
+            <h3 class="title">Timezone:</h3>
+        </li>
+        <h3 class="description">{{country.timezones}}</h3>
+        <li>
+            <h3 class="title">Neighbouring Countries:</h3>
+        </li>
+        <h3 class="description">{{country.borders}}</h3>
+        <li>
+            <h3 class="title">Languages:</h3>
+        </li>
+        <h3 class="description">{{country.languages}}</h3>
+    </ul>
+    <br/>
+    <a href="{% url 'index' %}">Go Back to Home Page</a>
+</div>
+</body>
+</html>
