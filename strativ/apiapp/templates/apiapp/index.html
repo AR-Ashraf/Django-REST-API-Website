@@ -28,6 +28,21 @@
         color: #000000;
         margin-bottom: 40px;
         }
+        .logout_btn{
+        width: 130px;
+        text-decoration: none;
+        line-height: 35px;
+        display: inline-block;
+        background-color: #000000;
+        font-weight: medium;
+        color: #ffffff;
+        text-align: center;
+        vertical-align: middle;
+        user-select: none;
+        border: 1px solid transparent;
+        font-size: 14px;
+        opacity: 1;
+        }
         .table{
         width: 100%;
         border-collapse: collapse;
@@ -113,6 +128,8 @@
 </head>
 <body>
 <div class="table-container">
+<!--    <button class="logout_btn" type="button" >LogOut</button>-->
+    <a href="{% url 'logout' %}" class="logout_btn"> LogOut</a>
     <h1 class="heading">STRATIV Django Assignment</h1>
     <h3 class="sub-heading">Mohammad Ashraful Islam</h3>
     <center>
