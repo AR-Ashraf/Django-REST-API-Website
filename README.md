@@ -23,6 +23,7 @@
   </p>
   
   
+![Screenshot 2021-08-20 023015](https://user-images.githubusercontent.com/65129467/130139781-24c0c805-f52f-434d-bd62-f2cf61f7bc8a.png)
 
 
 
@@ -59,6 +60,9 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
+![Screenshot 2021-08-20 023050](https://user-images.githubusercontent.com/65129467/130139821-d7818526-c8d0-4a46-962a-4ce98c19b238.png)
+
 
 Django is a very popular web framework for developing websites and web apps. This project is a task given by the company STRATIV to me for evaluating my Django and Python knowledge.
 
