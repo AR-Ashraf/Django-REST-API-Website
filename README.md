@@ -11,19 +11,19 @@
 <!-- PROJECT DESCRIPTION -->
 <br />
 
-  <h3 align="center">Flutter Map</h3>
+  <h3 align="center">Django REST API Website for STRATIV</h3>
 
   <p align="center">
-    A flutter project implementing google map API with customized marker like AIRBNB.
+    A django project implementing REST API with customized webpage UI.
     <br />
     <br />
-    <a href="https://github.com/AR-Ashraf/flutter_map/issues">Report Bug</a>
+    <a href="https://github.com/AR-Ashraf/Django-REST-API-Website/issues">Report Bug</a>
     ·
-    <a href="https://github.com/AR-Ashraf/flutter_map/issues">Request Feature</a>
+    <a href="https://github.com/AR-Ashraf/Django-REST-API-Website/issues">Request Feature</a>
   </p>
   
   
-![Screenshot 2021-07-28 174715](https://user-images.githubusercontent.com/65129467/127317430-cbea20c6-b958-422a-92c2-c6cf68d798e5.png)
+
 
 
   
@@ -60,16 +60,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Flutter development is increasing day by day for its multi-platform flexibilities. In today's project I have developed a map app using google map API. The special part is that, I have customized the marker of the map like airbnb. This will help those who want to have customization in their maps.
+Django is a very popular web framework for developing websites and web apps. This project is a task given by the company STRATIV to me for evaluating my Django and Python knowledge.
 
-If you are here because:
-* You want to learn about implementing map feature in flutter using bloc pattern
-* You don't want to roam around sites to learn map customization
-
-Then you are at the right repo. Let's build something amazing then. If you get the time and love my repo then please consider giving it a star and follow :)
-
-
-![Screenshot 2021-07-28 174742](https://user-images.githubusercontent.com/65129467/127317503-86aaddec-c65a-4612-9274-5e13af0eb3f5.png)
+Through this project:
+* You will be able to learn how to design django UI.
+* You will learn how to code & run Custom Management Commands in Django.
+* You will be able to implement custom made REST API in django projects.
+* You will be able to make user authentication & API token authentication.
 
 
 
@@ -77,8 +74,9 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 ## Built With
 
-* [Android-Studio](https://developer.android.com/studio)
-* [Flutter](https://flutter.dev/docs/get-started/install)
+* [Pycharm](https://www.jetbrains.com/pycharm/)
+* [Django Framework](https://www.djangoproject.com/)
+* [Django REST Framework](https://www.django-rest-framework.org/)
 
 
 <!-- GETTING STARTED -->
@@ -91,53 +89,73 @@ To get started with this project to run locally follow the steps below. After th
 Please clone the repo using the following command in your git bash. Or you choose to use the Clone option at the top right corner of this page to copy the link and clone it into your IDE directly.
 * Clone the repo
   ```sh
-  git clone https://github.com/AR-Ashraf/flutter_map.git
+  git clone https://github.com/AR-Ashraf/Django-REST-API-Website.git
   ```
-Open the project from your cloned directory in Android Studio. [Make sure you have installed flutter and dart]
+Open the project from your cloned directory in Pycharm. [Make sure you have installed the Django module from setting->python interpreter->add module]
 
 ### Installation
 
-1. Go to pubspec.yaml file and click on pub get; or run the following commands in the terminal
+1. Install Python 3.9 and Pip3 in your device and then run the following command to install django
    ```sh
-   flutter doctor  
+   pip install Django
    ```
    ```sh
-      flutter pub get 
+   pip install djangorestframework   # For implement REST API
+   pip install markdown       # Markdown support for the browsable API.
+   pip install django-filter  # Filtering support
    ```
-2. Make sure your flutter sdk path and module sdk path are correctly selected in the project structure option from File tab.
+2. Now run the following command to install necessary libraries
+   ```sh
+   pip install requests
+   pip install pillow
+   ```
   
-3. Select project mode to show your code directories at the left side of android studio.
-   
-   Go to your android manifest file: "flutter_map/android/app/src/main/AndroidManifest.xml"
-   Now add your google API key in the meta-data tag inside application tag:
+3. Now go to the project terminal of pycharm and run the following commands
    ```sh
-   <meta-data android:name="com.google.android.geo.API_KEY"
-              android:value="Your-API-Key"/>
+   python manage.py makemigrations
+   python manage.py migrate
    ```
-   
-   Again go to your ios appdelegate file: "flutter_map/ios/Runner/AppDelegate.swift"
-   Now add your google API key in the bool function: 
+4. Now create super user to access the admin dashboard by running following commands
    ```sh
-      GMSServices.provideAPIKey("Your-API-Key")
+   python manage.py createsuperuser
    ```
+   Provide your admin username, email & password. These credentials will be used to access the admin dashboard.
+5. Now run your local server to launch the website by running following command
+   ```sh
+   python manage.py runserver
+   ```
+   You will see a ip url in the terminal:  http://127.0.0.1:8000/
+   Copy this url and paste it in your browser. You will be redirected to a Login page. Please Sign Up as a new user so that you can be authenticated and get into the main dashboard of the project.
+   After Registration, enjoy the website!
    
-4. Now you are ready to run the app.
+ <!-- API Uses -->
+## API
 
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this project to make awesome map features in flutter apps.
-
-_For more examples, please refer to the [Link](https://github.com/search?q=flutter+map)_
-
+Available API are
+   ```sh
+   1) List of all countries: http://127.0.0.1:8000/api/country/list
+   2) Detail of a specific country: http://127.0.0.1:8000/api/country/list?search=<country_name>
+   3) Create a new country: http://127.0.0.1:8000/api/country/create
+   4) Update an existing country: http://127.0.0.1:8000/api/country/<country_name>/update
+   5) Delete an existing country: http://127.0.0.1:8000/api/country/<country_name>/delete
+   6) Searching a country by partial name: http://127.0.0.1:8000/api/country/list?search=<partial_country_name>
+   ```
+To access these API, run postman in your local machine. There provide your username & password in the form-data section of Body tab. Using these you need to retrieve your access token.
+   ```sh
+   http://127.0.0.1:8000/api/token/auth/
+   ```
+Use this url in the GET method of postman and you will get a token in the result field. Then go to the Header tab and chose Authorizatoin as credential and paste your token inside the value field. 
+   ```sh
+   Token <Your-Token>
+   ```
+Provide the token in the value field like this way.
+Now use those api urls and send requests & enjoy this project.
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/AR-Ashraf/flutter_map/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/AR-Ashraf/Django-REST-API-Website/issues) for a list of proposed features (and known issues).
 
 
 
@@ -147,9 +165,9 @@ See the [open issues](https://github.com/AR-Ashraf/flutter_map/issues) for a lis
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
-2. Create your Dev Branch (`git checkout -b dev/flutter_map`)
-3. Commit your Changes (`git commit -m 'Add some Flutter Map Feature'`)
-4. Push to the Branch (`git push origin dev/flutter_map`)
+2. Create your Dev Branch (`git checkout -b dev/Django-REST-API-Website`)
+3. Commit your Changes (`git commit -m 'Add some Django API Feature'`)
+4. Push to the Branch (`git push origin dev/Django-REST-API-Website`)
 5. Open a Pull Request
 
 
@@ -183,16 +201,16 @@ My Other Projects: [Projects](https://github.com/AR-Ashraf?tab=repositories)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/AR-Ashraf/flutter_map.svg?style=for-the-badge
-[contributors-url]: https://github.com/AR-Ashraf/flutter_map/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/AR-Ashraf/flutter_map.svg?style=for-the-badge
-[forks-url]: https://github.com/AR-Ashraf/flutter_map/network/members
-[stars-shield]: https://img.shields.io/github/stars/AR-Ashraf/flutter_map.svg?style=for-the-badge
-[stars-url]: https://github.com/AR-Ashraf/flutter_map/stargazers
-[issues-shield]: https://img.shields.io/github/issues/AR-Ashraf/flutter_map.svg?style=for-the-badge
-[issues-url]: https://github.com/AR-Ashraf/flutter_map/issues
-[license-shield]: https://img.shields.io/github/license/AR-Ashraf/flutter_map.svg?style=for-the-badge
-[license-url]: https://github.com/AR-Ashraf/flutter_map/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/AR-Ashraf/Django-REST-API-Website.svg?style=for-the-badge
+[contributors-url]: https://github.com/AR-Ashraf/Django-REST-API-Website/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/AR-Ashraf/Django-REST-API-Website.svg?style=for-the-badge
+[forks-url]: https://github.com/AR-Ashraf/Django-REST-API-Website/network/members
+[stars-shield]: https://img.shields.io/github/stars/AR-Ashraf/Django-REST-API-Website.svg?style=for-the-badge
+[stars-url]: https://github.com/AR-Ashraf/Django-REST-API-Website/stargazers
+[issues-shield]: https://img.shields.io/github/issues/AR-Ashraf/Django-REST-API-Website.svg?style=for-the-badge
+[issues-url]: https://github.com/AR-Ashraf/Django-REST-API-Website/issues
+[license-shield]: https://img.shields.io/github/license/AR-Ashraf/Django-REST-API-Website.svg?style=for-the-badge
+[license-url]: https://github.com/AR-Ashraf/Django-REST-API-Website/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/ashraful-islam-78aa7a1a0
 
